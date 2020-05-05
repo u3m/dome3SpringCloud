@@ -1,0 +1,13 @@
+server:
+  # 端口
+  port: 8100
+
+spring:
+  application:
+    # 别名
+    name: rest-service1
+eureka:
+  client:
+    serviceUrl:
+      # 注册中心地址
+      defaultZone: http://49.233.23.156:8000/eureka/

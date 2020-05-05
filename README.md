@@ -14,7 +14,7 @@ mvn spring-boot:run -Dspring-boot.run.profiles=dev1
 mvn spring-boot:run -Dspring-boot.run.profiles=dev2
 ```
 
-#### dome-parent-rest-service1 rest服务器提供者service2
+#### dome-parent-rest-service2 rest服务器提供者service2
 ```cmd
 mvn spring-boot:run
 ```

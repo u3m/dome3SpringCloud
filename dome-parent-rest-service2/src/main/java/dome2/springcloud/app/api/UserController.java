@@ -1,5 +1,6 @@
 package dome2.springcloud.app.api;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -20,10 +21,15 @@ public class UserController {
     @Autowired
     RestTemplate restTemplate;
 
-    // @ApiOperation("测试接口 / /home")
+//     @ApiOperation("测试接口 / /home")
     @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
+    @HystrixCommand(fallbackMethod = "error")
     public String home() {
         return restTemplate.getForObject("http://rest-service1/home", String.class);
+    }
+
+    private String error() {
+        return "error 异常 熔断处理!";
     }
 
     @ApiOperation(value = "提交订单")
